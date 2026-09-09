@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html:not(.dark) {
+    color-scheme: light;
+  }
+
+  * {
+    @apply border-ink-200 dark:border-ink-700;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-950 text-ink-100;
+    background-image: radial-gradient(circle at 72% 20%, rgba(223, 174, 61, 0.13), transparent 24rem),
+      radial-gradient(circle at 8% 4%, rgba(32, 179, 159, 0.14), transparent 26rem),
+      linear-gradient(145deg, #06070c 0%, #0b1020 52%, #11152a 100%);
+    background-attachment: fixed;
+    font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    transition: background-color 0.45s var(--ease-editorial, cubic-bezier(0.22, 1, 0.36, 1)),
+      color 0.45s var(--ease-editorial, cubic-bezier(0.22, 1, 0.36, 1));
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html:not(.dark) body {
+    @apply text-ink-800;
+    background-color: #f8f1e6;
+    background-image: radial-gradient(circle at 12% 8%, rgba(223, 174, 61, 0.1), transparent 28rem),
+      radial-gradient(circle at 86% 18%, rgba(32, 179, 159, 0.06), transparent 24rem);
+  }
+
+  html:not(.dark) .bg-ink-50 {
+    background-color: #f8f1e6;
+  }
+
+  html:not(.dark) .bg-ink-100 {
+    background-color: #efe5d5;
+  }
+
+  html:not(.dark) .bg-ink-100\/50 {
+    background-color: rgba(239, 229, 213, 0.72);
+  }
+
+  html:not(.dark) .bg-ink-200\/60 {
+    background-color: rgba(224, 211, 191, 0.6);
+  }
+
+  ::selection {
+    @apply bg-gold-400/30 text-ink-900 dark:text-ink-50;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.gold.400');
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@keyframes signal-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(246, 200, 95, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(246, 200, 95, 0);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-110%);
+  }
+  100% {
+    transform: translateY(110%);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes blink-cursor {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .container-editorial {
+    @apply mx-auto w-full max-w-content px-6 sm:px-8 lg:px-10;
+  }
+
+  .label-mono {
+    @apply font-mono text-[0.7rem] tracking-tight text-ink-500 dark:text-ink-300;
+  }
+
+  .section-wash {
+    background-image: none;
+  }
+
+  .signal-pulse {
+    animation: signal-pulse 2.4s ease-out infinite;
+  }
+
+  .scanline {
+    animation: scanline 5s ease-in-out infinite;
+  }
+
+  .float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+
+  .hero-title {
+    text-shadow: 0 0 28px rgba(246, 200, 95, 0.12);
+  }
+
+  .headline-cursor,
+  .typing-cursor {
+    animation: blink-cursor 1s steps(1, end) infinite;
+  }
+
+  #experience h2 {
+    position: relative;
+  }
+
+  #experience h2::after {
+    position: absolute;
+    bottom: -0.2rem;
+    left: 0;
+    width: 100%;
+    height: 0.12rem;
+    content: '';
+    background: linear-gradient(90deg, transparent, theme('colors.gold.400'), transparent);
+    opacity: 0;
+    transform: scaleX(0.2);
+    transition: opacity 0.45s ease, transform 0.55s var(--ease-editorial, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+
+  #experience h2:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  html:not(.dark) .hero-title span {
+    background-image: linear-gradient(to bottom, #b88520, #dfaE3d, #b88520);
+  }
+
+  .hairline {
+    @apply border-ink-200 dark:border-ink-700;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
