@@ -42,8 +42,9 @@
       .theme, .menu { border: 1px solid var(--line); background: transparent; padding: .45rem .7rem; transition: color .25s ease, border-color .25s ease, transform .25s ease, background .25s ease; }
       .theme:hover, .menu:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); background: rgba(246,200,95,.08); }
       .menu { display: none; }
-      .mobile-links { display: none; padding: .75rem 0 1rem; border-top: 1px solid var(--line); }
-      .mobile-links a { display: block; padding: .5rem 0; color: var(--muted); }
+      .mobile-links { display: none; position: relative; z-index: 2; padding: .75rem 0 1rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg); box-shadow: 0 16px 28px rgba(0,0,0,.2); }
+      .mobile-links a { display: block; padding: .65rem 0; color: var(--muted); transition: color .25s ease, padding-left .25s ease; }
+      .mobile-links a:hover, .mobile-links a:focus-visible { padding-left: .35rem; color: var(--gold); }
       .hero { min-height: 100vh; display: grid; align-items: center; padding: 7rem 0 4rem; }
       .hero-grid { display: grid; grid-template-columns: 1.35fr .8fr; align-items: center; gap: 4rem; }
       .hero-copy > * { animation: hero-in .8s cubic-bezier(.22,1,.36,1) both; }
