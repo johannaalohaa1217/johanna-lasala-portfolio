@@ -4,7 +4,7 @@ This is my personal portfolio website, created to showcase who I am, what I can 
 
 I wanted the portfolio to feel more than just a collection of information. I designed it with a cinematic, modern, and slightly editorial style while keeping it clean, interactive, and easy to explore.
 
-The website is built with React, Vite, Tailwind CSS, Framer Motion, and Lucide icons. Most of my portfolio content is organized in one editable file: `src/content.js`, making it easier for me to update my information without editing multiple components.
+The portfolio is a standalone `index.html` file with its own responsive CSS and JavaScript interactions.
 
 ## Portfolio Sections
 
@@ -21,64 +21,22 @@ The website is built with React, Vite, Tailwind CSS, Framer Motion, and Lucide i
 
 I built this portfolio using:
 
-- React
-- Vite
-- Tailwind CSS
-- Framer Motion
-- Lucide Icons
-- JavaScript / JSX
+- HTML
+- CSS
+- JavaScript
 - Google Fonts
 
 ## Running My Portfolio Locally
 
-To run the project locally, you'll need [Node.js](https://nodejs.org) 18 or later installed.
+The simplest option is to double-click `index.html` and open it in a browser. Keep the `assets` folder beside it so the portrait and resume images can load.
 
-```bash
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
-````
-
-After running the command, Vite will provide a local URL, usually:
-
-`http://localhost:5173`
-
-Open the URL in your browser to view my portfolio.
-
-## Available Scripts
-
-```bash
-npm run dev      # Start the development server
-npm run build    # Build the production site
-npm run preview  # Preview the production build locally
-npm run lint     # Run ESLint for JavaScript and JSX files
-```
-
-## Building for Production
-
-To create the production version of my portfolio, run:
-
-```bash
-npm run build
-```
-
-This generates the `dist/` folder containing the production-ready version of the website.
-
-The site can be deployed to platforms such as Vercel, Netlify, GitHub Pages, or Cloudflare Pages.
-
-To preview the production build locally:
-
-```bash
-npm run preview
-```
+The site can be deployed as-is to GitHub Pages, Netlify, Vercel, or Cloudflare Pages.
 
 ## Editing My Portfolio Content
 
 I keep most of my personal information inside:
 
-`src/content.js`
+`index.html`
 
 This file contains:
 
@@ -90,27 +48,27 @@ This file contains:
 * Projects
 * Contact information
 
-Keeping the content in one file makes it easier for me to update my portfolio without editing multiple component files.
+Keeping the content in one file makes it easier to update the portfolio without editing multiple component files.
 
 ### Photo
 
 My portrait is located at:
 
-`src/assets/johanna-portrait.jpg`
+`assets/johanna-portrait.jpg`
 
-To replace my photo, I can use another image with the same filename. If I rename the file, I need to update its import inside `src/components/Hero.jsx`.
+To replace my photo, use another image with the same filename.
 
 ### Resume
 
 My resume is located at:
 
-`src/assets/johanna-resume.jpg`
+`assets/Johanna_Marie_Lasala_Vibe_Coder_Resume.pdf`
 
 The Resume section, the "View Resume" button, and the download option all use this file.
 
 ### Colors
 
-I customized the color palette inside `tailwind.config.js`.
+The color palette is defined in the `<style>` section inside `index.html`.
 
 The main colors are:
 
@@ -118,8 +76,6 @@ The main colors are:
 * `gold` — primary accent
 * `signal` — supporting teal
 * `ember` — secondary warm accent
-
-Additional light-mode colors and global effects are handled inside `src/index.css`.
 
 ### Fonts
 
@@ -130,7 +86,7 @@ I used different fonts for different parts of the design:
 * **DM Sans** — body text
 * **JetBrains Mono** — technical labels
 
-The fonts are loaded from Google Fonts and mapped in `tailwind.config.js`.
+The fonts are loaded from Google Fonts in `index.html`.
 
 ### Theme
 
@@ -140,21 +96,19 @@ The navigation bar includes a theme toggle that switches between dark mode and a
 
 My selected theme is saved in `localStorage` using `jml-theme-v2`, allowing the website to remember my theme preference when I return.
 
+Claude AI is highlighted in the About, Experience, Skills, and Projects sections as the AI development tool used while making and refining projects.
+
 ## Project Structure
 
 ```text
-src/
-  assets/          → My portrait and resume images
-  components/      → Navigation, hero, portfolio sections, controls, and footer
-  context/         → ThemeContext for dark/light mode
-  lib/             → Shared Framer Motion animation variants
-  content.js       → All portfolio content
-  App.jsx          → Main page composition
-  main.jsx         → React entry point
-  index.css        → Tailwind layers, fonts, theme overrides, and animations
+assets/
+  johanna-portrait.jpg                 → Portrait image
+  Johanna_Marie_Lasala_Vibe_Coder_Resume.pdf → Resume PDF
 
-.vscode/
-  settings.json    → Tailwind CSS editor settings
+.github/workflows/
+  deploy.yml       → Static GitHub Pages deployment
+
+index.html         → Portfolio markup, styles, and interactions
 ```
 
 ## Interactive Features
@@ -164,7 +118,7 @@ I added several interactions to make the portfolio feel more alive instead of be
 * My hero portrait reacts to mouse and touch movement and smoothly returns to its original position.
 * The hero headline uses a gold gradient.
 * The word currently under the pointer or touch interaction gets a subtle glow effect.
-* Page elements use Framer Motion for smooth entrance and hover animations.
+* Page elements use CSS animations for smooth entrance and hover animations.
 * The navigation keeps track of the section I'm currently viewing.
 * The website includes a responsive mobile navigation.
 * The theme can be switched between dark and light mode.
@@ -179,7 +133,7 @@ The experience, education, skills, and projects included on the website are base
 
 ## About This Project
 
-This portfolio is also a reflection of my growth as I continue learning web development and design. I built it to experiment with modern web technologies, animations, responsive layouts, and interactive experiences while creating something that represents me.
+This portfolio is also a reflection of my growth as I continue learning web development and design. I built it to experiment with animations, responsive layouts, and interactive experiences while creating something that represents me.
 
 **Built with curiosity, creativity, and continuous learning.**
 
